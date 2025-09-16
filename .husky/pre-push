@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Example: Run dotnet format before pushing
+if ! dotnet format CsvImportDemo.csproj --verify-no-changes --severity error; then
+  echo "Code format check failed. Please fix formatting before pushing."
+  exit 1
+fi
